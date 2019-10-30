@@ -1,4 +1,5 @@
 provider "google" {
+  credentials = "${file("/home/petro/terraform.json")}"
   project     = var.project
   region      = var.region
   zone        = var.zone
