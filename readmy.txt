@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Create file') {
+            steps {
+                echo 'Upload stats to slack > test.txt'
+            }
+        }
+        stage ('Create file') {
+            steps {
+                ls
+            }
+        }
+        stage ('send file') {
+            steps {
+                slackUploadFile channel: "#testing", credentialId: "parol", filePath: 'test.txt', initialComment: 'Just for testing'
+            }
+        }
+    }
+}
